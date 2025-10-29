@@ -123,7 +123,7 @@ h1 {
 
   .product {
     flex: 0 0 calc 40% ; /* ✅ 两列布局，自动适配 */
-    max-width: calc 40% ;
+    max-width: calc 30% ;
     padding: 6px;
     height: auto;  /* 高度随内容自适应 */
   }
