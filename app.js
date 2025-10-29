@@ -52,7 +52,6 @@ let filteredProducts = [...products];
 // === 搜索/分类/排序 ===
 function applyFilters() {
   const searchText = document.getElementById("search-input").value.toLowerCase();
-  const sortOption = document.getElementById("sort-select").value;
   const category = document.getElementById("category-select").value;
 
   filteredProducts = products.filter(p => {
@@ -60,10 +59,6 @@ function applyFilters() {
     const matchCategory = category === "all" || p.category === category;
     return matchSearch && matchCategory;
   });
-
-  if(sortOption === "price-asc") filteredProducts.sort((a,b)=>a.price-b.price);
-  else if(sortOption === "price-desc") filteredProducts.sort((a,b)=>b.price-a.price);
-
   renderProducts();
 }
 

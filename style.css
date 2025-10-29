@@ -20,6 +20,58 @@ body {
   display: block;         /* 去掉底部空白间隙 */
 }
 
+#filter-section {
+  display: flex;
+  flex-wrap: nowrap;        /* 强制一行 */
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;                 /* 控件间距 */
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+/* ======================= */
+/* Filter Section Layout   */
+/* ======================= */
+#filter-section {
+  display: flex;
+  justify-content: space-between; /* 控件之间自动分配间距 */
+  flex-wrap: wrap;                /* 小屏幕自动换行 */
+  gap: 8px;                       /* 控件间距 */
+  margin-bottom: 20px;
+}
+
+
+
+#filter-section {
+  display: flex;
+  justify-content: flex-end; /* 控件靠右排列 */
+  gap: 8px;                  /* 控件间距 */
+  max-width: 90%;            /* 宽度可选，保持与页面内容一致 */
+  margin: 10px auto 20px auto; /* 上下间距 */
+}
+
+#filter-section input,
+#filter-section select {
+  width: 150px;              /* 每个控件固定宽度，也可以改成 flex: 1 自适应 */
+  padding: 6px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+@media screen and (max-width: 480px) {
+  #filter-section input,
+  #filter-section select {
+    width: 120px;            /* 手机端缩小控件宽度 */
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+}
+
+
+
+
 
 
 /* Store title */
@@ -32,25 +84,7 @@ h1 {
 }
 
 
-#filter-section {
-  display: flex;
-  flex-wrap: nowrap;        /* 强制一行 */
-  justify-content: space-between;
-  align-items: center;
-  gap: 4px;                 /* 控件间距 */
-  padding: 0 4px;
-  box-sizing: border-box;
-}
 
-#filter-section input,
-#filter-section select {
-  flex: 0 0 32%;             /* 每个控件占 32%，3个控件 + 2*gap ≈ 100% */
-  box-sizing: border-box;
-  padding: 6px 8px;
-  font-size: 14px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
 
 @media screen and (max-width: 480px) {
   #filter-section input,

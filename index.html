@@ -33,17 +33,11 @@
 
   <!-- 搜索/分类/排序 -->
   <div id="filter-section">
-    <input type="text" id="search-input" placeholder="Search products..." oninput="applyFilters()">
+    <input type="text" id="search-input" placeholder="Search..." oninput="applyFilters()">
     <select id="category-select" onchange="applyFilters()">
-      <option value="all">All Categories</option>
       <option value="Official Merch">Official Merch</option>
       <option value="Artist Authorised Merch">Artist Authorised Merch</option>
       <option value="More Merch">More Merch</option>
-    </select>
-    <select id="sort-select" onchange="applyFilters()">
-      <option value="default">Default Sort</option>
-      <option value="price-asc">Price: Low to High</option>
-      <option value="price-desc">Price: High to Low</option>
     </select>
   </div>
 
