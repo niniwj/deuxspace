@@ -90,3 +90,21 @@ h1 {
   background: #005fa3;
 }
 
+/* ===================== */
+/* Responsive: 手机端    */
+/* ===================== */
+@media screen and (max-width: 600px) {
+  .product {
+    width: calc(50% - 12px); /* 两列布局 */
+    padding: 6px;
+    height: 260px;            /* 卡片整体缩小 */
+    font-size: 0.85em;        /* 卡片内文字等比缩小 */
+  }
+  .product img {
+    border-radius: 8px;
+  }
+  .product button {
+    padding: 4px 6px;
+    font-size: 0.85em;
+  }
+}
