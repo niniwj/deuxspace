@@ -6,11 +6,41 @@ body {
   color: #333;
 }
 
+/* 顶部横幅图片 */
+
+
+<header id="top-banner">
+  <img src="images/Birthday chibi badge.png" alt="网站横幅">
+</header>
+
+
+#top-banner {
+  width: 100%;            /* 宽度占满网页 */
+  overflow: hidden;       /* 避免图片溢出 */
+}
+
+#top-banner img {
+  width: 100%;            /* 图片自适应容器宽度 */
+  height: auto;           /* 保持比例 */
+  display: block;         /* 去掉底部空白间隙 */
+}
+
+
+
+
+
+
+
+
 /* Store title */
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;      /* 标题大小，可调 */
+  color: #222;          /* 字体颜色 */
+  text-align: center;   /* 居中 */
+  letter-spacing: 1px;  /* 字间距 */
 }
+
 
 /* Filter section (search, category, sort) */
 #filter-section {
