@@ -114,18 +114,27 @@ h1 {
 }
 
 /* ===================== */
-/* Responsive: 手机端两列 */
+/* Responsive: 手机端两列 (兼容 iPhone Safari) */
 /* ===================== */
 @media screen and (max-width: 600px) {
   #product-list {
-    gap: 8px; /* 缩小间距 */
+    display: grid;                      /* ✅ 改为 Grid 布局 */
+    grid-template-columns: repeat(2, 1fr); /* ✅ 两列自适应 */
+    gap: 8px;                           /* 卡片之间的间距 */
+    justify-items: center;              /* 居中对齐 */
   }
 
   .product {
-    flex: 0 0 calc 40% ; /* ✅ 两列布局，自动适配 */
-    max-width: calc 30% ;
+    width: 100%;        /* 自动适应列宽 */
+    max-width: 180px;   /* 限制最大宽度防止太大 */
     padding: 6px;
-    height: auto;  /* 高度随内容自适应 */
+    height: auto;       /* 自动高度 */
+  }
+
+  .product img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 保持正方形比例 */
+    object-fit: cover;
   }
 
   .product h3 {
