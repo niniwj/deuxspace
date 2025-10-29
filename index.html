@@ -12,12 +12,20 @@
 <body>
   <h1>Welcome to Our Store</h1>
 
-  <!-- 注册 / 登录 -->
-  <div id="user-section">
-    <input type="email" id="email" placeholder="Enter your email">
-    <button onclick="registerUser()">Register / Login</button>
-    <p id="user-info"></p>
-  </div>
+<!-- 顶部购物车图标 -->
+<div id="cart-icon">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<!-- 购物车弹出框 -->
+<div id="cart-popup" class="hidden">
+  <h2>Shopping Cart</h2>
+  <div id="cart-list"></div>
+  <p>Total: <span id="total-price">€0.00</span></p>
+  <div id="paypal-button-container"></div>
+</div>
+
+
 
   <!-- 搜索/分类/排序 -->
   <div id="filter-section">
@@ -38,15 +46,6 @@
   <!-- 商品列表 -->
   <div id="product-list"></div>
 
-  <!-- 购物车 -->
-  <div id="cart-section">
-    <h2>Shopping Cart</h2>
-    <div id="cart-list"></div>
-    <p>Total: <span id="total-price">0</span></p>
-
-    <!-- PayPal 按钮容器 -->
-    <div id="paypal-button-container"></div>
-  </div>
 
   <!-- PayPal SDK -->
   <script src="https://www.paypal.com/sdk/js?client-id=ATt-Gk79z_98WwtpZLOjAQzOPcNd4Tf6NUBwqy3234R3S9LXCShw-R8NC5Ey7tNeGrcRE59w9AbGn6Ks&currency=EUR"></script>

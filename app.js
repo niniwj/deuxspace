@@ -1,8 +1,8 @@
 // Product Data
 const products = [
-  { id: 1, name: "'Embrace of Tender Heart' Plushy Pillow", price:80, img: "images/Embrace of Tender Heart Plushy Hugging Pillow.png", category: "Official Merch", realImg: "images/rba.jpg"},
-  { id: 1, name: "'Embrace of Tender Heart' Phone Charm", price: 26, img: "images/Embrace of Tender Heart Plushy Phone Charm.png", category: "Official Merch", realImg: "images/rba.jpg"},
-  { id: 1, name: "'Embrace of Tender Heart' Phone Grip", price: 15, img: "images/Embrace of Tender Heart Phone Grip.png", category: "Official Merch", realImg: "images/rba.jpg"},
+  { id: 40, name: "'Embrace of Tender Heart' Plushy Pillow", price:80, img: "images/Embrace of Tender Heart Plushy Hugging Pillow.png", category: "Official Merch", realImg: "images/rba.jpg"},
+  { id: 41, name: "'Embrace of Tender Heart' Phone Charm", price: 26, img: "images/Embrace of Tender Heart Plushy Phone Charm.png", category: "Official Merch", realImg: "images/rba.jpg"},
+  { id: 42, name: "'Embrace of Tender Heart' Phone Grip", price: 15, img: "images/Embrace of Tender Heart Phone Grip.png", category: "Official Merch", realImg: "images/rba.jpg"},
   { id: 1, name: "'Abysm Sovereign' 58mm Badge A", price: 7, img: "images/58mm Badge.png", category: "Official Merch", realImg: "images/rba.jpg"},
   { id: 2, name: "'Abysm Sovereign' 58mm Badge B", price: 7, img: "images/B.png", category: "Official Merch", realImg: "images/rbb.jpg"},
   { id: 3, name: "'Abysm Sovereign' Square badge A", price: 8.5, img: "images/Square badge.png", category: "Official Merch", realImg: "images/sba.jpg"},
@@ -45,17 +45,9 @@ const products = [
 ];
 
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 let filteredProducts = [...products];
 
-// === 注册/登录 ===
-function registerUser() {
-  const email = document.getElementById("email").value;
-  if(email) {
-    localStorage.setItem("user", email);
-    document.getElementById("user-info").innerText = "Current User: " + email;
-  }
-}
 
 // === 搜索/分类/排序 ===
 function applyFilters() {
@@ -93,64 +85,102 @@ function renderProducts() {
   });
 }
 
-// === 加入购物车 ===
+// ==========================
+// 添加到购物车
 function addToCart(id) {
-  const product = products.find(p=>p.id===id);
-  const existing = cart.find(item=>item.id===id);
-  if(existing) existing.quantity += 1;
-  else cart.push({...product, quantity:1});
-  localStorage.setItem("cart", JSON.stringify(cart));
-  renderCart();
-}
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(item => item.id === id);
 
-// === 移除购物车 ===
-function removeFromCart(id) {
-  const index = cart.findIndex(item=>item.id===id);
-  if(index!==-1){
-    if(cart[index].quantity>1) cart[index].quantity-=1;
-    else cart.splice(index,1);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ ...product, quantity: 1 });
   }
-  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // 保存到 sessionStorage
+  sessionStorage.setItem("cart", JSON.stringify(cart));
+
   renderCart();
 }
 
-// === 渲染购物车 ===
+// ==========================
+// 从购物车移除
+function removeFromCart(id) {
+  const index = cart.findIndex(item => item.id === id);
+  if (index !== -1) {
+    if (cart[index].quantity > 1) {
+      cart[index].quantity -= 1;
+    } else {
+      cart.splice(index, 1);
+    }
+  }
+
+  sessionStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+// ==========================
+// 渲染购物车
 function renderCart() {
   const cartList = document.getElementById("cart-list");
+  if (!cartList) return;
   cartList.innerHTML = "";
 
   let total = 0;
-  cart.forEach(item=>{
-    total += item.price*item.quantity;
+
+  cart.forEach(item => {
+    total += item.price * item.quantity;
 
     const div = document.createElement("div");
     div.style.display = "flex";
     div.style.alignItems = "center";
     div.style.gap = "8px";
+    div.style.marginBottom = "6px";
 
     const img = document.createElement("img");
     img.src = item.img;
     img.alt = item.name;
-    img.style.width="50px";
-    img.style.height="50px";
-    img.style.objectFit="cover";
+    img.style.width = "50px";
+    img.style.height = "50px";
+    img.style.objectFit = "cover";
+    img.style.borderRadius = "5px";
 
     const span = document.createElement("span");
-    span.innerText = `${item.name} ×${item.quantity} - €${(item.price*item.quantity).toFixed(2)}`;
+    span.innerText = `${item.name} ×${item.quantity} - €${(item.price * item.quantity).toFixed(2)}`;
 
     const button = document.createElement("button");
-    button.innerText="Remove One";
-    button.onclick=()=>removeFromCart(item.id);
+    button.innerText = "Remove One";
+    button.onclick = () => removeFromCart(item.id);
 
-    div.append(img, span, button);
+    div.appendChild(img);
+    div.appendChild(span);
+    div.appendChild(button);
+
     cartList.appendChild(div);
   });
 
-  document.getElementById("total-price").innerText = total.toFixed(2);
+  document.getElementById("total-price").innerText = "€" + total.toFixed(2);
 
-  // 刷新 PayPal 按钮
+  // 刷新 PayPal 按钮（如果有）
   renderPayPalButton();
+
+  // 同步右上角购物车数量
+  const cartCount = document.getElementById("cart-count");
+  if (cartCount) {
+    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.innerText = count;
+  }
 }
+
+// ==========================
+// 页面加载时渲染
+window.onload = () => {
+  renderCart();
+  applyFilters();
+
+  const user = localStorage.getItem("user");
+  if (user) document.getElementById("user-info").innerText = "Current User: " + user;
+};
 
 // === PayPal 按钮 ===
 function renderPayPalButton() {
@@ -173,7 +203,6 @@ function renderPayPalButton() {
       return actions.order.capture().then(details=>{
         alert(`✅ Payment successful! Thank you, ${details.payer.name.given_name}.`);
         cart=[];
-        localStorage.setItem("cart", JSON.stringify(cart));
         renderCart();
       });
     },
@@ -189,3 +218,64 @@ window.onload = () => {
   const user = localStorage.getItem("user");
   if(user) document.getElementById("user-info").innerText = "Current User: "+user;
 };
+
+
+
+
+
+// ==========================
+// 🛒 购物车图标交互逻辑
+// ==========================
+const cartIcon = document.getElementById("cart-icon");
+const cartPopup = document.getElementById("cart-popup");
+const cartCount = document.getElementById("cart-count");
+
+cartIcon.addEventListener("click", () => {
+  cartPopup.classList.toggle("hidden");
+});
+
+// 更新购物车数量显示
+function updateCartCount() {
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartCount.textContent = totalItems;
+}
+
+// 修改 renderCart() 函数的最后一行，加上：
+function renderCart() {
+  const cartList = document.getElementById("cart-list");
+  const cartCount = document.getElementById("cart-count");
+  if (!cartList || !cartCount) return;
+
+  cartList.innerHTML = "";
+  cartCount.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  let total = 0;
+
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+
+    const img = document.createElement("img");
+    img.src = item.img;  // 缩略图
+    img.alt = item.name;
+
+    const span = document.createElement("span");
+    span.innerText = `${item.name} ×${item.quantity} - €${(item.price * item.quantity).toFixed(2)}`;
+
+    const button = document.createElement("button");
+    button.innerText = "Remove";
+    button.onclick = () => removeFromCart(item.id);
+
+    div.appendChild(img);
+    div.appendChild(span);
+    div.appendChild(button);
+    cartList.appendChild(div);
+  });
+
+  document.getElementById("total-price").innerText = "€" + total.toFixed(2);
+
+  renderPayPalButton(); // 刷新 PayPal
+}
+
