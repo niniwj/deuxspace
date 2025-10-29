@@ -102,8 +102,8 @@ h1 {
   }
 
   .product {
-    flex: 0 0 45%; /* 两列布局 */
-    max-width: 45%;
+    flex: 0 0 42%; /* 两列布局 */
+    max-width: 42%;
     padding: 6px;
   }
 
