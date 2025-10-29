@@ -114,36 +114,54 @@ h1 {
 }
 
 /* ===================== */
-/* Responsive: 手机端两列 (完美适配所有设备) */
+/* ✅ 适配所有手机端（安卓 + iPhone） */
 /* ===================== */
 @media screen and (max-width: 600px) {
+  /* 父容器强制使用 Grid，两列对齐 */
   #product-list {
-    display: grid;                         /* ✅ 使用 Grid 代替 Flex */
-    grid-template-columns: repeat(2, 1fr); /* ✅ 两列布局 */
-    gap: 10px;                             /* ✅ 两列间距 */
-    justify-items: center;                 /* ✅ 居中卡片 */
+    display: grid !important; /* 强制覆盖旧的 flex */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 两列自适应 */
+    gap: 10px; /* 卡片间距 */
+    justify-items: center; /* 居中卡片 */
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
   }
 
+  /* 商品卡片 */
   .product {
-    width: 100%;         /* ✅ 自动适应列宽 */
-    max-width: 180px;    /* ✅ 防止过宽 */
+    width: 100%;
+    max-width: 160px; /* 限制最大宽度防止重合 */
+    box-sizing: border-box;
     padding: 6px;
-    height: auto;        /* ✅ 自动高度，不拉伸 */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* 自动高度 */
   }
 
+  /* 图片保持方形缩放 */
   .product img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* ✅ 保持正方形比例 */
+    aspect-ratio: 1 / 1; /* Safari 15+ 支持 */
     object-fit: cover;
     border-radius: 8px;
   }
 
+  /* 标题与文字缩放 */
   .product h3 {
     font-size: 0.9em;
+    margin: 4px 0;
   }
   .product p {
     font-size: 0.85em;
+    margin: 2px 0;
   }
+
+  /* 按钮缩小 */
   .product button {
     font-size: 0.8em;
     padding: 4px 6px;
