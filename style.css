@@ -122,8 +122,8 @@ h1 {
   }
 
   .product {
-    flex: 0 0 calc(50% - 10px); /* ✅ 两列布局，自动适配 */
-    max-width: calc(50% - 10px);
+    flex: 0 0 calc(40% - 10px); /* ✅ 两列布局，自动适配 */
+    max-width: calc(40% - 10px);
     padding: 6px;
     height: auto;  /* 高度随内容自适应 */
   }
