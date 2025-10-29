@@ -28,10 +28,6 @@ body {
 
 
 
-
-
-
-
 /* Store title */
 h1 {
   font-family: 'Pacifico', cursive;
@@ -53,6 +49,22 @@ h1 {
   padding: 6px 10px;
   font-size: 14px;
 }
+
+/* ===================== */
+/* 手机端优化 (小屏幕) */
+@media screen and (max-width: 480px) {
+  #filter-section {
+    gap: 4px;
+  }
+
+  #filter-section input,
+  #filter-section select {
+    max-width: 32%;         /* 三个控件平分一行，留间隙 */
+    font-size: 13px;
+    padding: 4px 6px;
+  }
+}
+
 
 /* Product grid */
 #product-list {
