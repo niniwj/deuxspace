@@ -3,12 +3,11 @@ const products = [
   { id: 60, name: "Abyssal Sovereign Tote Bag", price: 15, img: "images/artist/Abyssal Sovereign Tote Bag.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 61, name: "Omamori Lucky Bag Dragon", price: 8.25, img: "images/artist/Omamori Lucky Bag Dragon.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 62, name: "Crow Phone Charm Keychain", price: 8.5, img: "images/artist/Crow Phone Charm Keychain.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
-  { id: 64, name: "Room Stickers", price: 5, img: "images/artist/room Stickers.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
+  { id: 64, name: "Room Stickers", price: 5, img: "images/artist/Room Stickers.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 65, name: "Silicon Pinch", price:23, img: "images/artist/Silicon Pinch.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 66, name: "Wedding Ring", price: 6.5, img: "images/artist/Wedding Ring.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 67, name: "Datura Ring Black", price: 8, img: "images/artist/Datura Ring Black.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 68, name: "Datura Ring Red", price: 8, img: "images/artist/Datura Ring Red.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
-
   { id: 58, name: "'Capture the Glimpses' Photo Card", price: 5, img: "images/Capture the Glimpses Photo Card.png", category: "Official Merch", realImg: "images/rba.jpg"},
   { id: 59, name: "'Capture the Glimpses' Identity Card Keychain", price: 23.5, img: "images/Capture the Glimpses Identity Card Keychain.png", category: "Official Merch", realImg: "images/rba.jpg"},
   { id: 50, name: "'Heartfelt Whispers' 58mm Badge", price: 8, img: "images/Heartfelt Whispers 58mm Badge.png", category: "Official Merch", realImg: "images/rba.jpg"},
