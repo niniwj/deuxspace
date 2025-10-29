@@ -105,6 +105,7 @@ h1 {
     flex: 0 0 40%; /* 两列布局 */
     max-width: 40%;
     padding: 6px;
+    height: auto;           /* ✅ 移动端自动高度 */
   }
 
   .product h3 {
