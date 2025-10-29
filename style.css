@@ -90,18 +90,13 @@ h1 {
   background: #005fa3;
 }
 
-/* ===================== */
-/* Responsive: 手机端两列 */
-/* ===================== */
+/* 手机：两列 */
 @media screen and (max-width: 600px) {
-  .product {
-    width: calc(50% - 12px); /* 两列布局，减去gap一半 */
+  #product-list {
+    justify-content: space-between; /* 两列均匀分布 */
   }
-}
-
-/* 超小屏一列显示 */
-@media screen and (max-width: 350px) {
   .product {
-    width: 100%;
+    width: calc(50% - 8px); /* 两列布局，减去gap一半 */
+    margin-bottom: 16px;    /* 每行间距 */
   }
 }
