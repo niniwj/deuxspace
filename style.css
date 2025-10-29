@@ -90,13 +90,3 @@ h1 {
   background: #005fa3;
 }
 
-/* 手机：两列 */
-@media screen and (max-width: 600px) {
-  #product-list {
-    justify-content: space-between; /* 两列均匀分布 */
-  }
-  .product {
-    width: calc(50% - 8px); /* 两列布局，减去gap一半 */
-    margin-bottom: 16px;    /* 每行间距 */
-  }
-}
