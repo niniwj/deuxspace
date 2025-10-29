@@ -96,8 +96,8 @@ h1 {
 /* 响应式：小屏幕自动两列 */
 @media screen and (max-width: 480px) {
   .product {
-    flex: 1 1 calc(50% - 12px);
-    max-width: calc(50% - 12px);
+    flex: 1 1 calc(40% - 12px);
+    max-width: calc(40% - 12px);
     padding: 6px;
   }
   .product h3 {
