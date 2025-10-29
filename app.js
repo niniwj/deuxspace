@@ -1,6 +1,6 @@
 // Product Data
 const products = [
-  { id: 60, name: "Abyssal Sovereign Tote Bag", price: 15, img: "images/artist/Abyssal Sovereign Tote Bag.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
+  { id: 60, name: "Abyssal Sovereign Tote Bag", price: 15, img: "images/artist/Abyssal-Sovereign-Tote-Bag.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 61, name: "Omamori Lucky Bag Dragon", price: 8.25, img: "images/artist/Omamori Lucky Bag Dragon.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 62, name: "Crow Phone Charm Keychain", price: 8.5, img: "images/artist/Crow Phone Charm Keychain.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
   { id: 64, name: "Room Stickers", price: 5, img: "images/artist/Room Stickers.png", category: "Artist Authorised Merch", realImg: "images/rba.jpg"},
