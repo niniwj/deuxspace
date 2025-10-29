@@ -9,11 +9,6 @@ body {
 /* 顶部横幅图片 */
 
 
-<header id="top-banner">
-  <img src="images/Birthday chibi badge.png" alt="网站横幅">
-</header>
-
-
 #top-banner {
   width: 100%;            /* 宽度占满网页 */
   overflow: hidden;       /* 避免图片溢出 */
@@ -27,7 +22,6 @@ body {
 
 
 
-
 /* Store title */
 h1 {
   font-family: 'Pacifico', cursive;
@@ -38,32 +32,36 @@ h1 {
 }
 
 
-/* Filter section (search, category, sort) */
 #filter-section {
-  text-align: center;
-  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: nowrap;        /* 强制一行 */
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;                 /* 控件间距 */
+  padding: 0 4px;
+  box-sizing: border-box;
 }
+
 #filter-section input,
 #filter-section select {
-  margin: 5px;
-  padding: 6px 10px;
+  flex: 0 0 32%;             /* 每个控件占 32%，3个控件 + 2*gap ≈ 100% */
+  box-sizing: border-box;
+  padding: 6px 8px;
   font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }
 
-/* ===================== */
-/* 手机端优化 (小屏幕) */
 @media screen and (max-width: 480px) {
-  #filter-section {
-    gap: 4px;
-  }
-
   #filter-section input,
   #filter-section select {
-    max-width: 32%;         /* 三个控件平分一行，留间隙 */
-    font-size: 13px;
+    flex: 0 0 32%;           /* 确保小屏幕仍然一行 */
     padding: 4px 6px;
+    font-size: 13px;
   }
 }
+
+
 
 
 /* Product grid */
