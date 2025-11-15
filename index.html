@@ -50,5 +50,55 @@
 
   <!-- 应用脚本 -->
   <script src="app.js"></script>
+
+
+<script>
+  // 你创建项目后在 Firebase 控制台可以找到这些配置
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "deuxspace-orders.firebaseapp.com",
+    projectId: "deuxspace-orders",
+    storageBucket: "deuxspace-orders.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // 初始化 Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDB-sjSQTqruaqVc7fQi_NOmWBqpabaWXw",
+    authDomain: "deuxspace-orders.firebaseapp.com",
+    projectId: "deuxspace-orders",
+    storageBucket: "deuxspace-orders.firebasestorage.app",
+    messagingSenderId: "1044926379499",
+    appId: "1:1044926379499:web:bb998d52df24d042d655ae",
+    measurementId: "G-XVJEGSGSVE"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"></script>
+
 </body>
 </html>
